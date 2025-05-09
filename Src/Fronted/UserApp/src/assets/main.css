@@ -1,0 +1,76 @@
+@import './base.css';
+@import './icomoon.css';
+
+.wrapper {
+  display: flex;
+}
+
+.navigation {
+  padding-top: 44px;
+  background-color: var(--menuBackgroundColor);
+  height: 100vh;
+}
+
+.company.sideBarElem {
+  gap: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.company.sideBarElem p{
+  font-size: 24px;
+  font-family: "Nunito";
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  align-content: center;
+  margin-top: 2px;
+  display: block;
+}
+
+.menuItemText {
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  padding: 12px 0;
+}
+
+.menuItemText:hover {
+  color: var(--menuitemHoverColor);
+}
+
+.menuItemText:hover::before {
+  color: var(--menuitemHoverColor);
+}
+
+.menuItemText p {
+  font-family: "Nunito";
+}
+
+.menuItemText::before {
+  margin-right: 14px;
+}
+
+.sideBarElem--selected {
+  background: linear-gradient(90deg, var(--menuitemHoverColor), 1%, transparent);
+  background-position-x: -2px;
+  background-repeat: no-repeat;
+}
+
+.wrapper .sideBarElem {
+  display: flex;
+  padding: 0 42px;
+}
+
+
+.wrapper .company {
+  display: flex;
+  margin-bottom: 98px;
+}
+
+.wrapper .company img {
+  object-fit: contain;
+  margin-right: 5px;
+}
