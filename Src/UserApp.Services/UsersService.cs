@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UserApp.Services.Models;
+using UserApp.Repository;
+using UserApp.Repository.Models;
 
 namespace UserApp.Services;
 
@@ -12,10 +13,9 @@ public class UsersService
         _context = context;
     }
 
-    public async Task<User> GetAsync(int id)
+    public Task<User> GetAsync(int id)
     {
-        var user = await _context.Users.FirstAsync(val => val.Id == id);
-        return user;
+        return _context.Users.FirstAsync(val => val.Id == id);
     }
 
     public async Task<int> CreateAsync(User user)

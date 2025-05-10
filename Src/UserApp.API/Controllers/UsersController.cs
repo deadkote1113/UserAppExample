@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UserApp.API.DTO.Users;
 using UserApp.Services;
-using UserApp.Services.Models;
 
 namespace UserApp.API.Controllers;
 
@@ -15,28 +15,29 @@ public class UsersController : ControllerBase
         _usersService = usersService;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Get(int id)
-    {
-        return Ok(await _usersService.GetAsync(id));
-    }
-
     [HttpPost]
-    public async Task<IActionResult> Create(User user)
+    public async Task<ActionResult<int>> Create(UserCreateDTO user)
     {
-        user.Id = 0;
-        return Ok(await _usersService.CreateAsync(user));
+        var newUserId = await _usersService.CreateAsync(user.ToEntity());
+        return Ok(newUserId);
     }
 
-    [HttpPatch]
-    public async Task<IActionResult> Update(User user)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<UserDTO>> Read(int id)
     {
-        await _usersService.UpdateAsync(user);
+        var user = await _usersService.GetAsync(id);
+        return Ok(user.ToDTO());
+    }
+
+    [HttpPut]
+    public async Task<ActionResult> Update(UserDTO user)
+    {
+        await _usersService.UpdateAsync(user.ToEntity());
         return NoContent();
     }
 
-    [HttpDelete]
-    public async Task<IActionResult> Delete(int id)
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Delete(int id)
     {
         await _usersService.DeleteAsync(id);
         return NoContent();
