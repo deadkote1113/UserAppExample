@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import IconHome from './components/icons/IconHome.vue';
+import IconProfile from './components/icons/IconProfile.vue';
+import IconUsers from './components/icons/IconUsers.vue';
 </script>
 
 <template>
@@ -12,16 +14,22 @@ import HelloWorld from './components/HelloWorld.vue'
       </div>
       <ul class="menu">
         <li class="menuItem sideBarElem sideBarElem--selected">
-          <a class="menuItemText icon-Home" href=""><p>Home</p></a>
+          <RouterLink to="/" class="menuItemText">
+            <IconHome />
+            <p>Home</p>
+          </RouterLink>
         </li>
         <li class="menuItem sideBarElem">
-          <a class="menuItemText icon-Home" href=""><p>Home</p></a>
+          <RouterLink to="/profile" class="menuItemText">
+            <IconProfile />
+            <p>Profile</p>
+          </RouterLink>
         </li>
         <li class="menuItem sideBarElem">
-          <a class="menuItemText icon-Home" href=""><p>Home</p></a>
-        </li>
-        <li class="menuItem sideBarElem">
-          <a class="menuItemText icon-Home" href=""><p>Home</p></a>
+          <RouterLink to="/users" class="menuItemText">
+            <IconUsers />
+            <p>Users</p>
+          </RouterLink>
         </li>
       </ul>
     </section>
@@ -29,6 +37,4 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,5 +1,4 @@
 @import './base.css';
-@import './icomoon.css';
 
 .wrapper {
   display: flex;
@@ -17,9 +16,9 @@
   align-items: center;
 }
 
-.company.sideBarElem p{
+.company.sideBarElem p {
   font-size: 24px;
-  font-family: "Nunito";
+  font-family: 'Nunito';
   color: white;
   font-weight: 500;
   text-transform: uppercase;
@@ -46,10 +45,11 @@
 }
 
 .menuItemText p {
-  font-family: "Nunito";
+  font-family: 'Nunito';
+  margin-top: 2px;
 }
 
-.menuItemText::before {
+.menuItemText svg {
   margin-right: 14px;
 }
 
@@ -63,7 +63,6 @@
   display: flex;
   padding: 0 42px;
 }
-
 
 .wrapper .company {
   display: flex;
